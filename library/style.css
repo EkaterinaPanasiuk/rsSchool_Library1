@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 :root {
   --color-black: #000;
   --color-white: hsl(0, 0%, 100%);
@@ -251,6 +254,10 @@
   position: absolute;
   bottom: 15px;
   left: 20px;
+  transition: 0.3s;
+}
+.favorite-item__btn:hover {
+  background-color: var(--color-brown);
 }
 .favorite-item__img {
   position: absolute;
@@ -258,6 +265,14 @@
   left: 390px;
   width: 200px;
   height: 300px;
+}
+.own {
+  border-color: var(--color-brown);
+  color: var(--color-brown);
+}
+.own:hover {
+  background-color: var(--color-brown);
+  color: var(--color-white);
 }
 /*------------------------------coffee -------------------*/
 .coffee > h3 {
@@ -462,6 +477,10 @@
   line-height: normal;
   letter-spacing: 1px;
   background-color: var(--color-white);
+  transition: 0.3s;
+}
+.digital-button:hover {
+  background-color: var(--color-brown);
 }
 .small {
   width: 75px;
