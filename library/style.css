@@ -21,6 +21,47 @@ html {
   text-transform: capitalize;
   position: relative;
 }
+.title {
+  color: var(--color-title);
+  text-align: center;
+  font-family: var(--font-title);
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.subtitle {
+  color: var(--color-black);
+  font-family: var(--font-subtitle);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.6px;
+}
+.text,
+.text-bold {
+  color: var(--color-black);
+  font-family: var(--font-subtitle);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.text-bold {
+  font-weight: 700;
+}
+.link {
+  text-decoration: none;
+  /*  // color: var(--color-white); */
+  font-family: var(--font-subtitle);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 50px;
+  cursor: pointer;
+}
 
 .line {
   margin: 20px auto 0;
@@ -29,7 +70,8 @@ html {
   height: 1px;
   background-color: var(--color-black);
 }
-.section-subtitle {
+.section-subtitle,
+.section-subtitle-forum {
   color: var(--color-black);
   font-family: var(--font-subtitle);
   font-size: 20px;
@@ -37,6 +79,10 @@ html {
   font-weight: 400;
   line-height: 40px;
   margin: 40px auto 20px;
+}
+.section-subtitle-forum {
+  font-family: var(--font-title);
+  margin: 0;
 }
 .section-wrapper {
   width: 100%;
@@ -62,10 +108,7 @@ html {
 .header-logo > h1 {
   color: var(--color-white);
   font-family: var(--font-title);
-  font-size: 30px;
-  font-weight: 400;
   line-height: 50px;
-  letter-spacing: 0.6px;
 }
 .header-left {
   display: flex;
@@ -82,13 +125,7 @@ html {
 }
 
 .header-menu > li > a {
-  text-decoration: none;
   color: var(--color-white);
-  font-family: var(--font-subtitle);
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 50px;
-  cursor: pointer;
 }
 .header-menu > li > a:hover {
   color: var(--color-brown);
@@ -105,26 +142,6 @@ html {
   background-image: url("./accets/Welcome-bg.png");
   position: relative;
 }
-/* .welcom-title-wrapper {
-  position: absolute;
-  bottom: 160px;
-  left: 0;
-  width: 600px;
-  height: 220px;
-  padding: 35px 40px;
-  z-index: 10;
-  background-color: var(--color-black);
-}
-.welcom-title-wrapper > h1 {
-  color: var(--color-white);
-  text-align: center;
-  font-family: var(--font-title);
-  font-size: 40px;
-  font-weight: 400;
-  line-height: 50px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-} */
 
 /*--------------------about----------------------*/
 .about-galery {
@@ -136,7 +153,7 @@ html {
 }
 .dotes {
   /*  // width: 68px; */
-  margin: 40px auto;
+  margin: 40px auto 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -146,20 +163,24 @@ html {
   display: block;
   width: 26px;
   height: 26px;
+  position: relative;
+}
+.dot::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   background-color: var(--color-black);
-  margin: 5px;
+  top: 50%;
+  left: 50;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
 }
 /*--------------------favorites----------------------*/
-.favorites > h4 {
+.favorite-item__maintitle {
   text-align: left;
-  color: var(--color-black);
-  font-family: var(--font-subtitle);
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin: 0 0 40px;
+  margin: 40px 0;
 }
 .favorite-form {
   display: flex;
@@ -271,8 +292,9 @@ html {
   color: var(--color-brown);
 }
 .own:hover {
-  background-color: var(--color-brown);
-  color: var(--color-white);
+  border-color: var(--color-brown);
+  background-color: var(--color-white);
+  color: var(--color-brown);
 }
 /*------------------------------coffee -------------------*/
 .coffee > h3 {
@@ -326,20 +348,14 @@ html {
 .menu-row > h6,
 .menu-row > p {
   white-space: nowrap;
-  color: var(--color-black);
-  font-family: var(--font-subtitle);
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 40px;
-  letter-spacing: 2px;
-  text-transform: capitalize;
+  margin: 0 0 0 0;
 }
 
 .menu-inner > hr {
   width: 100px;
   height: 1px;
   background-color: var(--color-brown);
+  margin: 0;
 }
 /*---------------------contact----------------------------*/
 .contacts-wrapper {
@@ -374,7 +390,8 @@ html {
 }
 
 .contacts-text-section > h6,
-.contacts-text-section > p {
+.contacts-text-section > p,
+.contacts-text-section > p > a {
   color: var(--color-black);
   font-family: var(--font-subtitle);
   text-align: left;
@@ -385,8 +402,10 @@ html {
   letter-spacing: 2px;
   text-transform: capitalize;
   margin: 0 0 20px;
+  text-decoration: none;
 }
-.contacts-text-section > p {
+.contacts-text-section > p,
+.contacts-text-section > p > a {
   font-weight: 400;
   margin: 0;
 }
