@@ -21,20 +21,25 @@
           <h1 class="subtitle">Brooklyn Public Library</h1>
         </div>
         <div class="header-left">
-          <nav>
-            <ul class="header-menu r">
-              <li><a class="link" href="#about">About</a></li>
-              <li><a class="link" href="#favorites">Favorites</a></li>
-              <li><a class="link" href="#coffee">Coffee shop</a></li>
-              <li><a class="link" href="#contacts">Contacts</a></li>
-              <li><a class="link" href="#libruary ">Libruary Card</a></li>
+          <nav class="header__nav animate-close">
+            <ul class="header__menu">
+              <li><a class="link header__link" href="#about">About</a></li>
+              <li>
+                <a class="link header__link" href="#favorites">Favorites</a>
+              </li>
+              <li>
+                <a class="link header__link" href="#coffee">Coffee shop</a>
+              </li>
+              <li>
+                <a class="link header__link" href="#contacts">Contacts</a>
+              </li>
+              <li>
+                <a class="link header__link" href="#libruary ">Libruary Card</a>
+              </li>
             </ul>
           </nav>
           <img src="./accets/icon_profile.svg" alt="icon_user" />
-          <div class="header-burger">
-            <img class="header__burger-img " id="burger"
-            src="./accets/burger.png"
-          </div>
+          <div class="header-burger close" id="burger"></div>
         </div>
       </header>
       <main>
@@ -56,12 +61,24 @@
                 class="arrow__img"
               />
             </div>
-            <div class="about-galery">
-              <img src="./accets/about/image-1.png" alt="girl in libruary" />
-              <img src="./accets/about/image-2.png" alt="monuments" />
-              <img src="./accets/about/image-3.png" alt="books in libruary" />
-              <img src="./accets/about/image-4.png" alt="ladder in libruary" />
-              <img src="./accets/about/image-5.png" alt="main entrance" />
+            <div class="about-galery__centralblock">
+              <div class="about-galery">
+                <img src="./accets/about/image-1.png" alt="girl in libruary" />
+                <img src="./accets/about/image-2.png" alt="monuments" />
+                <img src="./accets/about/image-3.png" alt="books in libruary" />
+                <img
+                  src="./accets/about/image-4.png"
+                  alt="ladder in libruary"
+                />
+                <img src="./accets/about/image-5.png" alt="main entrance" />
+              </div>
+              <div class="dotes">
+                <span class="dot bg-brown"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
             </div>
             <div class="arrow arrow-right">
               <img
@@ -70,11 +87,6 @@
                 class="arrow__img"
               />
             </div>
-          </div>
-          <div class="dotes">
-            <span class="dot bg-brown"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
           </div>
         </section>
         <section class="favorites section-wrapper" id="favorites">
@@ -228,7 +240,7 @@
           <div class="line"></div>
           <h3 class="section-subtitle coffe-subtitle text">
             In our library, we have of cozy coffee shop, welcoming in customers
-            with frothy cappuccinos and friendly conversation. you can get a
+            with frothy cappuccinos and friendly conversation. You can get a
             favorite book and read in coffee shop. Our barista to cook you best
             coffee, and also you can try desserts from bakery.
           </h3>
@@ -330,8 +342,8 @@
           <div class="line"></div>
           <div class="contacts-wrapper">
             <div class="contacts-text">
+              <h6>For all Library inquiries:</h6>
               <div class="contacts-text-section">
-                <h6>For all Library inquiries:</h6>
                 <p>
                   Please call
                   <a class="hover" href="tel:(617)-730-2370">(617) 730-2370</a>
@@ -466,7 +478,7 @@
 
         <hr />
         <div class="footer-row footer-row__3">
-          <h6 class="footerText text">2023</h6>
+          <span class="footerText text footer__year">2023</span>
           <a class="footerText text" href="https://rs.school/js-stage0/ "
             >The Rolling Scopes School</a
           >
@@ -482,6 +494,7 @@
         </div>
       </footer>
     </div>
+
     <script src="./index.js"></script>
   </body>
 </html>
