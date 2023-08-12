@@ -4,12 +4,10 @@ document.addEventListener("click", (e) => {
   if (
     //open/close by burger-menu-icon
     e.target.classList.contains("header-burger") ||
+    //close menu by menu-link-click
+    e.target.classList.contains("header__link") ||
     //close by click outsidethe menu
-    !(
-      e.target.classList.contains("open__menu")
-      /* ||
-      e.target.classList.contains("header__link") */
-    )
+    !e.target.classList.contains("open__menu")
   ) {
     closeBurger();
   }
@@ -25,5 +23,5 @@ function closeBurger() {
 }
 
 console.log(
-  " Общая оценка 100 баллов:\nВёрстка валидная +10 \n Вёрстка семантическая +16 \nВёрстка валидная +10 \n Вёрстка соответствует макету +54 \n   ---------(блок <header> +8) \n    ---------секция About +6 \n    --------секция Favorites \n    -------секция CoffeShop \n    ---------секция Contacts \n    --------секция LibraryCard \n    --------блок <footer> +8 \n    Общие требования к верстке +20\n favicon есть в футере и в закладке страницы(head)"
+  " Общая оценка 48 баллов:\nблок <header> +2\n Welcome +2 \nAbout +4. (не понятно как должна выглядеть высота стрелок с учетом сохранения расстояния межд картинкой и точками(40пх) (+2) + 5точек кнопку own(+2) \n CoffeShop +4 \n Contacts +4 \n LibraryCard +4 \n <footer> + 2 \n не появляется горизонтальная полоса (+4) \n элементы не выходят за пределы окна(+4) \n элементы не наезжают друг на друга(+4) \n адаптивное меню +12 \n отступ иконки юзера от правого края - 105px(+2)\n  иконка юзера не прыгает(+2)\nпри нажатии на бургер-иконку плавно появляется адаптивное меню +4 \n фдаптивное меню скрывается резко(0)\nссылки в адаптивном меню работают(+2)\n PixelPerfect (+2)"
 );
