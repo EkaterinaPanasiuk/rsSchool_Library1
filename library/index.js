@@ -1,3 +1,21 @@
+const app = document.getElementById("app");
+const myapp = (function () {
+  AppView;
+  AppModel;
+  AppController;
+  return {
+    init: function (container) {
+      const view = new AppViev();
+      const controller = new AppController();
+      const model = new AppModel();
+      view.init(container);
+      model.init(view);
+      controller.init(container, model);
+    },
+  };
+})();
+myapp.init(app);
+
 document.addEventListener("click", (e) => {
   console.log(e.target);
 
