@@ -38,8 +38,20 @@
               </li>
             </ul>
           </nav>
-          <img src="./accets/icon_profile.svg" alt="icon_user" />
+          <img src="./accets/icon_profile.svg" alt="icon_user" id="user-icon" />
           <div class="header-burger close" id="burger"></div>
+        </div>
+        <div class="menu-auth" id="menu-no-auth">
+          <h2 class="menu-auth__title">Profile</h2>
+          <hr class="menu-auth__row" />
+          <button class="menu-auth__btn" id="log-in">Log In</button>
+          <button class="menu-auth__btn" id="register">Register</button>
+        </div>
+        <div class="menu-auth" id="menu-with-auth">
+          <h2 class="menu-auth__title">Profile</h2>
+          <hr class="menu-auth__row" />
+          <button class="menu-auth__btn" id="my-profile">My profile</button>
+          <button class="menu-auth__btn" id="log-out">Log Out</button>
         </div>
       </header>
       <main>
@@ -59,18 +71,39 @@
                 src="./accets/about/Arrow-left.png"
                 alt="arrow-left"
                 class="arrow__img"
+                id="arrow-back"
               />
             </div>
             <div class="about-galery__centralblock">
-              <div class="about-galery">
-                <img src="./accets/about/image-1.png" alt="girl in libruary" />
-                <img src="./accets/about/image-2.png" alt="monuments" />
-                <img src="./accets/about/image-3.png" alt="books in libruary" />
-                <img
-                  src="./accets/about/image-4.png"
-                  alt="ladder in libruary"
-                />
-                <img src="./accets/about/image-5.png" alt="main entrance" />
+              <div class="about-galery__visible-block">
+                <div class="about-galery" id="imgRow">
+                  <img
+                    class="about-galery__img"
+                    src="./accets/about/image-1.png"
+                    alt="girl in libruary"
+                  />
+                  <img
+                    class="about-galery__img"
+                    src="./accets/about/image-2.png"
+                    alt="monuments"
+                  />
+
+                  <img
+                    class="about-galery__img"
+                    src="./accets/about/image-3.png"
+                    alt="books in libruary"
+                  />
+                  <img
+                    src="./accets/about/image-4.png"
+                    alt="ladder in libruary"
+                    class="about-galery__img"
+                  />
+                  <img
+                    class="about-galery__img"
+                    src="./accets/about/image-5.png"
+                    alt="main entrance"
+                  />
+                </div>
               </div>
               <div class="dotes">
                 <span class="dot bg-brown"></span>
@@ -85,6 +118,7 @@
                 src="./accets/about/Arrow-right.png"
                 alt="arrow-right"
                 class="arrow__img"
+                id="arrow-next"
               />
             </div>
           </div>
@@ -93,7 +127,7 @@
           <h2 class="favorites-title section-title">Favorites</h2>
           <div class="line"></div>
           <h4 class="favorite-subtitle text-bold">Pick favorites of season</h4>
-          <form action="get" class="favorite-form">
+          <form action="get" class="favorite-form" id="favorite-navigation">
             <div class="favorite-form__item">
               <input
                 class="favorites-radio-input checked"
@@ -135,8 +169,8 @@
               /><label for="autumn" class="favorite-form__label">Autumn</label>
             </div>
           </form>
-          <div class="favorite-items-wrapper">
-            <div class="favorite-item-container">
+          <div class="favorite-items-wrapper" id="favorite-items-wrapper">
+            <!-- <div class="favorite-item-container">
               <div class="favorite-item">
                 <h4 class="favorite-item__maintitle text">Staff Picks</h4>
                 <hr class="favorite-item__row" />
@@ -232,7 +266,7 @@
                   alt="book coverage The Last Queen"
                 />
               </div>
-            </div>
+            </div> -->
           </div>
         </section>
         <section class="coffee section-wrapper" id="coffee">
@@ -495,6 +529,6 @@
       </footer>
     </div>
 
-    <script src="./index.js"></script>
+    <script src="./index.js" type="module"></script>
   </body>
 </html>
