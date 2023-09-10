@@ -306,15 +306,28 @@ export function AppView() {
       " " +
       user.lastname.slice(0, 1).toUpperCase() +
       user.lastname.slice(1);
+    const number = String(user.cardNumber);
     document
       .getElementById("digital-name-input")
       .setAttribute("value", `${name}`);
 
     document
       .getElementById("digital-number-input")
-      .setAttribute("value", `${user.cardNumber}`);
+      .setAttribute("value", number);
     document.getElementById("digital-name-input").classList.add("text-brown");
     document.getElementById("digital-number-input").classList.add("text-brown");
+    document.getElementById("digital-subtitle").innerText =
+      "Visit your profile";
+    document.querySelector(".digital-text").innerText =
+      "With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.";
+    const btn = `<button
+                  type="button"
+                  class="digital-button small"
+                  id="digital-profile"
+                >
+                  Profile
+                </button>`;
+    document.getElementById("digital-row-btns").innerHTML = btn;
   };
 
   this.logoutCardCheck = function () {
@@ -340,6 +353,21 @@ export function AppView() {
     document
       .getElementById("digital-number-input")
       .classList.remove("text-brown");
+    document.getElementById("digital-subtitle").innerText = "Get a reader card";
+    document.querySelector(".digital-text").innerText =
+      "You will be able to see a reader card after logging into account or you can register a new account";
+
+    const btn = ` <button
+                  type="button"
+                  class="digital-button small"
+                  id="digital-singUp"
+                >
+                  Sign Up
+                </button>
+                <button type="button" class="digital-button small" id="login-digital-btn">
+                  Log in
+                </button>`;
+    document.getElementById("digital-row-btns").innerHTML = btn;
   };
 }
 

@@ -80,6 +80,9 @@ export function AppController() {
             this.openMyProfileModal();
             this.closeAuthorizationeMenu();
             break;
+          case e.target.id === "digital-profile": {
+            this.openMyProfileModal();
+          }
           /*--------------------------start- header-burger-menu-----------------------------------*/
           /* ОТкрытие меню прои клике на header-burger */
           case e.target.id === "burger" && e.target.classList.contains("close"):
