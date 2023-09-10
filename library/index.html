@@ -6,6 +6,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="modal.css" />
+
     <link
       rel="icon"
       type="image/png"
@@ -15,14 +17,14 @@
     <title>Library</title>
   </head>
   <body>
-    <div class="main-container">
+     <div class="main-container">
       <header class="header">
         <div class="header-logo">
           <h1 class="subtitle">Brooklyn Public Library</h1>
         </div>
         <div class="header-left">
           <nav class="header__nav animate-close">
-            <ul class="header__menu">
+            <ul class="header__menu" id="header__menu">
               <li><a class="link header__link" href="#about">About</a></li>
               <li>
                 <a class="link header__link" href="#favorites">Favorites</a>
@@ -42,16 +44,34 @@
           <div class="header-burger close" id="burger"></div>
         </div>
         <div class="menu-auth" id="menu-no-auth">
-          <h2 class="menu-auth__title">Profile</h2>
+          <h2 class="menu-auth__title text-15">Profile</h2>
           <hr class="menu-auth__row" />
-          <button class="menu-auth__btn" id="log-in">Log In</button>
-          <button class="menu-auth__btn" id="register">Register</button>
+          <button type="button" class="text-15 btn menu-auth__btn" id="log-in">
+            Log In
+          </button>
+          <button
+            type="button"
+            class="text-15 btn menu-auth__btn"
+            id="register"
+          >
+            Register
+          </button>
         </div>
         <div class="menu-auth" id="menu-with-auth">
-          <h2 class="menu-auth__title">Profile</h2>
+          <h2 class="menu-auth__title text-15" id="profile-cardnumber">
+            Profile
+          </h2>
           <hr class="menu-auth__row" />
-          <button class="menu-auth__btn" id="my-profile">My profile</button>
-          <button class="menu-auth__btn" id="log-out">Log Out</button>
+          <button
+            type="button"
+            class="menu-auth__btn btn text-15"
+            id="my-profile"
+          >
+            My profile
+          </button>
+          <button type="button" class="menu-auth__btn btn text-15" id="log-out">
+            Log Out
+          </button>
         </div>
       </header>
       <main>
@@ -67,15 +87,22 @@
           </h3>
           <div class="about-galery__wrapper">
             <div class="arrow arrow-left">
-              <img
-                src="./accets/about/Arrow-left.png"
-                alt="arrow-left"
-                class="arrow__img"
-                id="arrow-back"
-              />
+              <button
+                type="button"
+                id="arrow-back-btn"
+                disabled
+                class="about-btn"
+              >
+                <img
+                  src="./accets/about/Arrow-left.png"
+                  alt="arrow-left"
+                  class="arrow__img"
+                  id="arrow-back"
+                />
+              </button>
             </div>
             <div class="about-galery__centralblock">
-              <div class="about-galery__visible-block">
+              <div class="about-galery__visible-block" id="imgRow-wrapper">
                 <div class="about-galery" id="imgRow">
                   <img
                     class="about-galery__img"
@@ -105,21 +132,17 @@
                   />
                 </div>
               </div>
-              <div class="dotes">
-                <span class="dot bg-brown"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-              </div>
+              <div class="dotes" id="dot-row"></div>
             </div>
             <div class="arrow arrow-right">
-              <img
-                src="./accets/about/Arrow-right.png"
-                alt="arrow-right"
-                class="arrow__img"
-                id="arrow-next"
-              />
+              <button type="button" id="arrow-next-btn" class="about-btn">
+                <img
+                  src="./accets/about/Arrow-right.png"
+                  alt="arrow-right"
+                  class="arrow__img"
+                  id="arrow-next"
+                />
+              </button>
             </div>
           </div>
         </section>
@@ -169,105 +192,7 @@
               /><label for="autumn" class="favorite-form__label">Autumn</label>
             </div>
           </form>
-          <div class="favorite-items-wrapper" id="favorite-items-wrapper">
-            <!-- <div class="favorite-item-container">
-              <div class="favorite-item">
-                <h4 class="favorite-item__maintitle text">Staff Picks</h4>
-                <hr class="favorite-item__row" />
-                <h4 class="favorite-item__title">
-                  The Book Eaters<br />
-                  <span class="favorite-item__subtitle">By Sunyi Dean</span>
-                </h4>
-
-                <p class="favorite-item__text">
-                  An unusual sci-fi story about a book eater woman who tries
-                  desperately to save her dangerous mind-eater son from
-                  tradition and certain death. Complete with dysfunctional
-                  family values, light Sapphic romance, and a strong, complex
-                  protagonist. Not for the faint of heart.
-                </p>
-                <button class="favorite-item__btn">Buy</button>
-                <img
-                  class="favorite-item__img"
-                  src="./accets/favorite/book-1.png"
-                  alt="book coverage The Book Eaters"
-                />
-              </div>
-            </div>
-            <div class="favorite-item-container">
-              <div class="favorite-item">
-                <h4 class="favorite-item__maintitle text">Staff Picks</h4>
-                <hr class="favorite-item__row" />
-                <h4 class="favorite-item__title">
-                  Cackle<br />
-                  <span class="favorite-item__subtitle"
-                    >By Rachel Harrison</span
-                  >
-                </h4>
-
-                <p class="favorite-item__text">
-                  Are your Halloween movies of choice The Witches of Eastwick
-                  and Practical Magic? Look no further than here - where a woman
-                  recovering from a breakup moves to a quaint town in upstate
-                  New York and befriends a beautiful witch.
-                </p>
-                <button class="favorite-item__btn" disabled>Buy</button>
-                <img
-                  class="favorite-item__img"
-                  src="./accets/favorite/book-2.png"
-                  alt="book coverage Cackle"
-                />
-              </div>
-            </div>
-            <div class="favorite-item-container">
-              <div class="favorite-item">
-                <h4 class="favorite-item__maintitle text">Staff Picks</h4>
-                <hr class="favorite-item__row" />
-                <h4 class="favorite-item__title">
-                  Dante: Poet of the Secular World<br /><span
-                    class="favorite-item__subtitle"
-                    >By Erich Auerbach</span
-                  >
-                </h4>
-
-                <p class="favorite-item__text">
-                  Auerbach's engaging book places the 'Comedy' within the
-                  tradition of epic, tragedy, and philosophy in general, arguing
-                  for Dante's uniqueness as one who raised the individual and
-                  his drama of soul into something of divine significance—an
-                  inspired introduction to Dante's main themes.
-                </p>
-                <button class="favorite-item__btn">Buy</button>
-                <img
-                  class="favorite-item__img"
-                  src="./accets/favorite/book-3.png"
-                  alt="book coverage Dante: Poet of the Secular World"
-                />
-              </div>
-            </div>
-            <div class="favorite-item-container">
-              <div class="favorite-item">
-                <h4 class="favorite-item__maintitle text">Staff Picks</h4>
-                <hr class="favorite-item__row" />
-                <h4 class="favorite-item__title">
-                  The Last Queen<br />
-                  <span class="favorite-item__subtitle">By Clive Irving</span>
-                </h4>
-
-                <p class="favorite-item__text">
-                  A timely and revelatory new biography of Queen Elizabeth (and
-                  her family) exploring how the Windsors have evolved and
-                  thrived as the modern world has changed around them.
-                </p>
-                <button class="favorite-item__btn own">Own</button>
-                <img
-                  class="favorite-item__img"
-                  src="./accets/favorite/book-4.png"
-                  alt="book coverage The Last Queen"
-                />
-              </div>
-            </div> -->
-          </div>
+          <div class="favorite-items-wrapper" id="favorite-items-wrapper"></div>
         </section>
         <section class="coffee section-wrapper" id="coffee">
           <h2 class="coffee-title section-title">Coffee shop</h2>
@@ -424,19 +349,22 @@
                     Brooklyn Public Library
                   </h6>
                   <input
+                  id="digital-name-input"
                     class="digital-input subtitle"
                     type="text"
                     name="name"
                     placeholder="Reader's name"
                   />
                   <input
+                  id="digital-number-input"
+
                     class="digital-input subtitle"
                     type="number"
                     name="number"
                     placeholder="Card number"
                   />
                 </form>
-                <button type="button" class="form-button digital-button">
+                <button type="button" class="form-button digital-button" id="card-check-btn">
                   Check the card
                 </button>
               </div>
@@ -450,10 +378,14 @@
                 or you can register a new account
               </p>
               <div class="btn-row">
-                <button type="button" class="digital-button small">
+                <button
+                  type="button"
+                  class="digital-button small"
+                  id="digital-singUp"
+                >
                   Sign Up
                 </button>
-                <button type="button" class="digital-button small">
+                <button type="button" class="digital-button small" id="login-digital-btn">
                   Log in
                 </button>
               </div>
@@ -527,8 +459,269 @@
           </div>
         </div>
       </footer>
+      <div class="register-modal" id="register-modal">
+        <div class="register-wrapper">
+          <div class="register-inner">
+            <h2 class="register-title modal-title text">Register</h2>
+            <form action="" id="registration-form" class="registration-form">
+              <label for="firstname" class="modal-label text-15"
+                >First name
+                <input
+                  type="text"
+                  class="modal-input"
+                  id="firstname"
+                  name="firstname"
+                  required
+                />
+              </label>
+              <label for="lastname" class="modal-label text-15">
+                Last name
+                <input type="text" class="modal-input" id="lastname" required name="lastname"/>
+              </label>
+              <label for="email" class="modal-label text-15">
+                E-mail
+                <input type="e-mail" class="modal-input" id="email" name="email" required />
+              </label>
+              <label for="password" class="modal-label text-15"
+                >Password
+                <input
+                  type="password"
+                  class="modal-input"
+                  id="password"
+                  name="password"
+                  required
+                  minlength="8"
+                />
+              </label>
+              <button
+                type="submit"
+                class="btn modal-btn text-10"
+                id="register-submit-btn"
+              >
+                Sign Up
+              </button>
+              <div class="modal-info-link">
+                <p class="text-10">Already have an account?</p>
+                <button
+                  type="button"
+                  class="small-btn text-10 link-btn"
+                  id="go-to-login-btn"
+                >
+                  Login
+                </button>
+              </div>
+            </form>
+          </div>
+          <button class="close-button" type="button">
+            <img
+              id="close-register-btn"
+              src="./accets/close_btn.svg"
+              alt="close-btn"
+            />
+          </button>
+        </div>
+      </div>
+      <div class="login-modal" id="login-modal">
+        <div class="login-wrapper">
+          <div class="login-inner">
+            <h2 class="login-title modal-title text">Login</h2>
+            <form action="" id="login-form" class="login-form">
+              <label for="login-email" class="modal-label text-15">
+                E-mail or readers card
+                <input
+                  type="e-mail"
+                  class="modal-input"
+                  id="login-email"
+                  name="loginemail"
+                  required
+                />
+              </label>
+              <label for="login-password" class="modal-label text-15"
+                >Password
+                <input
+                  type="password"
+                  class="modal-input"
+                  id="login-password"
+                  name="loginpassword"
+
+                  required
+                  minlength="8"
+                />
+              </label>
+            </form>
+            <button
+              type="submit"
+              class="btn modal-btn text-10"
+              id="login-submit-btn"
+            >
+              Sign Up
+            </button>
+            <div class="modal-info-link">
+              <p class="text-10">Don’t have an account?</p>
+              <button
+                type="button"
+                class="small-btn text-10 link-btn"
+                id="go-to-register-btn"
+              >
+                Register
+              </button>
+            </div>
+          </div>
+          <button class="close-button" type="button">
+            <img
+              id="close-login-btn"
+              src="./accets/close_btn.svg"
+              alt="close-btn"
+            />
+          </button>
+        </div>
+      </div>
+      <div class="profile-modal" id="profile-modal">
+        <div class="profile-wrapper">
+          <div class="profile-inner">
+            <div class="profile-name-wrapper">
+              <div class="profile-initial "></div>
+              <h2 class="profile-name"></h2>
+            </div>
+            <div class="profile-info">
+              <h2 class="profile-title section-subtitle">My profile</h2>
+              <div class="profile-cards">
+                <div class="profile-card profile-visits">
+                  <h4 class="profile-card-title text">Visits</h4>
+                  <img class="profile-card-icon" src="./accets/icons/Union.svg"></img>
+                  <p class="profile-card-count text-10" id="profile-visits"></p>
+                </div>
+                 <div class=" profile-card  profile-bonuses">
+                  <h4 class="profile-card-title text">bonuses</h4>
+                 <img class="profile-card-icon" src="./accets/icons/Star-1.svg"></img>
+                   <p class="profile-card-count text-10" id="profile-bonuses"></p>
+                </div>
+                 <div class="profile-card  profile-books">
+                  <h4 class="profile-card-title text">books</h4>
+                 <img class="profile-card-icon" src="./accets/icons/book.svg"></img>
+                   <p class="profile-card-count text-10" id="profile-books"></p>
+                </div>
+
+              </div>
+              <h4 class="profile-list-title section-subtitle">Rented books</h4>
+              <ul class="profile-list">
+              </ul>
+              <div class="number-row">
+                <h6 class="profile-cardnumbers section-subtitle">Card number </h6> 
+           <span class="profile-card-number section-subtitle" id="profile-card-number"></span>
+             <img src="./accets/icons/icon-copy.svg" alt="icon-copy">
+          </div>
+          </div>
+            <button class="close-button" type="button">
+            <img
+              id="close-profile-btn"
+              src="./accets/close_btn.svg"
+              alt="close-btn"
+            />
+          </button>
+        </div>
+      </div>
     </div>
 
-    <script src="./index.js" type="module"></script>
+      <div class="lib-modal" id="lib-modal">
+      <div class="lib-wrapper">
+        <div class="lib-inner">
+          <div class="lib-header">
+            <h2 class="lib-title title">Buy a library card</h2>
+          </div>
+          <div class="lib-info">
+            <div class="lib-col-right">
+              <form id="lib-form" class="lib-form">
+                <label class="lib-label text-15" for="cardnumber"
+                  >Bank card number</label
+                >
+                <input
+                  class="lib-input"
+                  type="text"
+                  id="cardnumber"
+                  name="cardnumber"
+                  required
+                  length="16"
+                />
+                <label class="lib-label text-15" for="expcode"
+                  >Expiration code</label
+                >
+                <div class="lib-input-row">
+                  <input
+                    type="text"
+                    class="lib-input exp-input exp-input1"
+                    id="expcode1"
+                    name="expcode1"
+                     required
+                  length="2"
+                  />
+                  <input
+                    type="text"
+                    class="lib-input exp-input exp-input2"
+                    id="expcode2"
+                    name="expcode2"
+                     required
+                  length="2"
+                  />
+                </div>
+                <label class="lib-label text-15" for="cvc">CVC</label>
+                <input type="text" class="lib-input" id="cvc" name="cvc" />
+                <label class="lib-label text-15" for="cardholder"
+                  >Cardholder name
+                </label>
+                <input
+                  type="text"
+                  class="lib-input"
+                  id="cardholder"
+                  name="cardholder"
+                   required
+                  length="3"
+                />
+                <label class="lib-label text-15" for="postalcode"
+                  >Postal code</label
+                >
+                <input
+                  type="text"
+                  class="lib-input"
+                  id="postalcode"
+                  name="postalcode"
+                />
+                <label class="lib-label text-15" for="city">City / Town </label>
+                <input type="text" class="lib-input" id="city" name="city" />
+              </form>
+              <div class="lib-row">
+                <button
+                  class="lib-submit-btn"
+                  id="lib-submit-btn"
+                  type="button"
+                >
+                  Buy
+                </button>
+                <span class="lib-price text">$25.00</span>
+              </div>
+            </div>
+            <div class="lib-col-left">
+              <p class="lib-text text-15">
+                If you are live, work, attend school, or pay property taxes in
+                New York State, you can get a $25 digital library card right now
+                using this online form. Visitors to New York State can also use
+                this form to apply for a temporary card.
+              </p>
+            </div>
+          </div>
+        </div>
+        <button class="close-button lib-close" type="button">
+          <img
+            id="close-lib-btn"
+            class="close-lib-btn"
+            src="./accets/icons/close-btn-dark.svg"
+            alt="close-btn"
+          />
+        </button>
+      </div>
+    </div>
+</div>
+
+  <script src="./index.js" type="module"></script> 
   </body>
 </html>
