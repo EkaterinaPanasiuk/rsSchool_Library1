@@ -1,0 +1,77 @@
+.btn-open,
+.btn-close {
+  color: aliceblue;
+  background-color: green;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 10px;
+  border: 1px solid aliceblue;
+  border-radius: 6px;
+}
+.btn-close {
+  background-color: red;
+}
+@keyframes opacityAnimationOpen {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+@keyframes opacityAnimationClose {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+/*--------------hiddden-mode--------------------*/
+.modal {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.528);
+  z-index: 100;
+  /*-----------arrange--modal-content-in-center--------------------*/
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: auto;
+}
+
+.modal-content {
+  margin: 300px auto;
+  width: 300px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+  position: relative;
+}
+
+.btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/*--------------visible-mode--------------------*/
+.visible {
+  visibility: visible;
+}
+.stopScroll {
+  overflow: hidden;
+}
+.animation-close {
+  animation: opacityAnimationClose 600ms;
+}
+.animation-open {
+  animation: opacityAnimationOpen 600ms;
+}
