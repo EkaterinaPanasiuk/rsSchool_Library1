@@ -169,6 +169,18 @@ a:hover,
     opacity: 0;
   }
 }
+.own {
+  width: 75px;
+  height: 30px;
+  border-radius: 2px;
+  border: 1px solid var(--color-brown);
+  color: var(--color-brown);
+  text-align: center;
+  font-family: var(--font-subtitle);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
 /*----------------------main----------------------------*/
 .main-container {
   width: 100%;
@@ -1021,6 +1033,13 @@ footer > hr {
   font-weight: 700;
 }
 /*-----------------my-profile-modal-------------------*/
+
+.digital-card-check > .profile-cards {
+  margin: 10px auto;
+}
+.digital-card-check > .profile-cards > .profile-card {
+  gap: 0;
+}
 .profile-wrapper {
   width: 600px;
   /*  min-height: 400px; */
@@ -1038,6 +1057,7 @@ footer > hr {
   gap: 15px;
   background-color: var(--color-black);
 }
+
 .profile-initial {
   width: 80px;
   height: 80px;
@@ -1056,6 +1076,7 @@ footer > hr {
   text-transform: capitalize;
   font-weight: 400;
   padding: 5px 15px;
+  word-break: break-all;
 }
 .profile-info {
   flex: 1;
@@ -1102,8 +1123,10 @@ footer > hr {
 }
 .profile-list {
   width: 100%;
-  height: auto;
+  height: 80px;
   margin: 0 0 0 20px;
+  overflow: auto;
+  list-style: circle;
 }
 .profile-list-title {
   font-size: 25px;
@@ -1114,6 +1137,8 @@ footer > hr {
   letter-spacing: 2px;
   text-transform: capitalize;
   margin: 0 0 10px;
+  padding: 0;
+  line-height: 20px;
 }
 .profile-card-number {
   color: var(--color-brown);
@@ -1124,7 +1149,7 @@ footer > hr {
   justify-content: flex-start;
   align-items: center;
   gap: 15px;
-  margin: 40px 0;
+  margin: 10px 0;
 }
 .profile-card-number,
 .profile-cardnumbers {

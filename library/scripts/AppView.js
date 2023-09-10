@@ -1,4 +1,5 @@
 import { drawBook } from "./templates/favoriteBookTemplate.js";
+import { Carusel } from "./carusel.js";
 import { Modal } from "./modal.js";
 
 export function AppView() {
@@ -228,7 +229,6 @@ export function AppView() {
   // add "checked" class for favorite-radio-btn
   this.changeRadioChecked = function (arg) {
     const favoriteRadio = document.querySelectorAll(".favorite-form__label");
-    console.log(favoriteRadio);
     favoriteRadio.forEach((item) => {
       item.classList.remove("checked");
       item.getAttribute("for") === arg ? item.classList.add("checked") : null;
@@ -242,17 +242,20 @@ export function AppView() {
   /*----------------end-favotite-block-----------------------*/
 
   this.renderDataToMyProfileModal = function (user, container) {
-    console.log(user);
+    console.log(user.books.length);
     let bookList;
     let bookNumber;
-    if (user.books === null || user.books.length > 0) {
+    if (user.books === null || user.books.length === 0) {
       bookNumber = 0;
       bookList = null;
     } else {
+      console.log(bookList);
       bookList = user.books.map((i) => {
-        return `<li class="section-subtitle profile-list-item ">${i}</li>`;
+        return `<li class="section-subtitle profile-list-item ">${
+          i.name + ", " + i.author
+        }</li>`;
       });
-      bookNumber = user.book.length;
+      bookNumber = user.books.length;
     }
 
     let box = document.getElementById(container);
@@ -261,7 +264,7 @@ export function AppView() {
     box.querySelector(".profile-initial").innerHTML =
       user.firstname.at(0) + user.lastname.at(0);
     box.querySelector("#profile-card-number").innerText = user.cardNumber ?? 0;
-    box.querySelector("#profile-books").innerText = user.books ?? 0;
+    box.querySelector("#profile-books").innerText = bookNumber ?? 0;
     box.querySelector("#profile-bonuses").innerText = user.bonuses ?? 0;
     box.querySelector("#profile-visits").innerText = user.visits ?? 0;
     bookList
@@ -276,21 +279,21 @@ export function AppView() {
     let temp = `
     <div class="profile-cards">
       <div class="profile-card profile-visits">
-        <h4 class="profile-card-title text">Visits</h4>
+        <h4 class="profile-card-title text-10">Visits</h4>
         <img class="profile-card-icon" src="./accets/icons/Union.svg"></img>
         <p class="profile-card-count text-10" id="profile-visits">${
           user.visits ?? 0
         }</p>
       </div>
       <div class=" profile-card  profile-bonuses">
-        <h4 class="profile-card-title text">bonuses</h4>
+        <h4 class="profile-card-title text-10">bonuses</h4>
         <img class="profile-card-icon" src="./accets/icons/Star-1.svg"></img>
         <p class="profile-card-count text-10" id="profile-bonuses">${
           user.bonuses ?? 0
         }</p>
       </div>
       <div class="profile-card  profile-books">
-        <h4 class="profile-card-title text">books</h4>
+        <h4 class="profile-card-title text-10">books</h4>
         <img class="profile-card-icon" src="./accets/icons/book.svg"></img>
         <p class="profile-card-count text-10" id="profile-books">${
           user.books === null || user.books.length === 0 ? 0 : user.books.length
@@ -306,14 +309,14 @@ export function AppView() {
       " " +
       user.lastname.slice(0, 1).toUpperCase() +
       user.lastname.slice(1);
-    const number = String(user.cardNumber);
     document
       .getElementById("digital-name-input")
       .setAttribute("value", `${name}`);
 
     document
       .getElementById("digital-number-input")
-      .setAttribute("value", number);
+      .setAttribute("value", `${user.cardNumber}`);
+
     document.getElementById("digital-name-input").classList.add("text-brown");
     document.getElementById("digital-number-input").classList.add("text-brown");
     document.getElementById("digital-subtitle").innerText =
@@ -331,19 +334,21 @@ export function AppView() {
   };
 
   this.logoutCardCheck = function () {
+    console.log("logout");
     const cardCheck = document.getElementById("digital-card-check");
     const cardBtn = document.createElement("button");
     cardBtn.setAttribute("type", "button");
-    cardBtn.classList.add("form-button ");
+    cardBtn.classList.add("form-button");
     cardBtn.classList.add("digital-button");
     cardBtn.setAttribute("id", "card-check-btn");
     cardBtn.innerText = "Check the card";
     cardCheck.replaceWith(cardBtn);
 
     document
-      .getElementById("digital-number-input")
+      .getElementById("digital-name-input")
       .setAttribute("placeholder", "Reader's name");
-
+    document.getElementById("digital-name-input").setAttribute("value", "");
+    document.getElementById("digital-number-input").setAttribute("value", "");
     document
       .getElementById("digital-number-input")
       .setAttribute("placeholder", "Card number");
@@ -368,6 +373,14 @@ export function AppView() {
                   Log in
                 </button>`;
     document.getElementById("digital-row-btns").innerHTML = btn;
+  };
+  this.ownBook = function (id, name, author) {
+    console.log(id);
+    const a = document.getElementById(id);
+    console.log(a);
+    const button = a.querySelector(".favorite-item__btn");
+    button.classList.add("own");
+    button.innerText = "Own";
   };
 }
 

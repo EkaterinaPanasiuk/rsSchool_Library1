@@ -5,14 +5,6 @@ export function AppModel() {
   let data = null;
   let user = null;
   let usersData = [];
-  let registerUser = null;
-  let loginUser = {
-    email: null,
-    password: null,
-    cardNumber: null,
-    visits: null,
-  };
-
   let userRegisterData = {
     firstname: null,
     lastname: null,
@@ -20,10 +12,11 @@ export function AppModel() {
     password: null,
     initial: null,
     cardNumber: null,
-    libruaryCard: null,
+    libruaryCard: true,
     books: [],
     visits: null,
   };
+
   this.init = function (viewbox) {
     view = viewbox;
     data = info;
@@ -32,8 +25,8 @@ export function AppModel() {
     this.updateUserIcon();
     this.updeteCardNumber();
     this.updateProfileText();
-    console.log(usersData);
   };
+
   this.initUser = function () {
     localStorage.getItem("user")
       ? (user = JSON.parse(localStorage.getItem("user")))
@@ -144,10 +137,10 @@ export function AppModel() {
       userRegisterData.firstname.slice(0, 1) +
       userRegisterData.lastname.slice(0, 1);
     userRegisterData.visits = this.visitsCounter(userRegisterData);
-
-    /* if (userRegisterData.visits) {
+    userRegisterData.libruaryCard = true;
+    if (userRegisterData.visits) {
       userRegisterData.visits = Number(userRegisterData.visits) + 1;
-    } else userRegisterData.visits = 1; */
+    } else userRegisterData.visits = 1;
     userRegisterData.books = null;
     user = userRegisterData; /* инициализируем юзера */
     this.createUserStore(userRegisterData);
@@ -178,7 +171,7 @@ export function AppModel() {
     view.closeLoginModal();
     this.updateProfileText();
     this.chengeCardCheck();
-
+    this.createUserStore(user);
     this.updateUserIcon(user);
   };
   this.visitsCounter = function (user) {
@@ -323,9 +316,10 @@ export function AppModel() {
   this.openMyProfileModal = function () {
     view.openMyProfileModal(user);
   };
-  this.buyBook = function (name, author) {
+  this.buyBook = function (id, name, author) {
     if (user !== null) {
       if (user.libruaryCard === true) {
+        this.addBookForNoted(id, name, author);
         /* дизэйблим кнопку и добавляем кнопку в массив купленных */
       } else {
         console.log("open");
@@ -388,5 +382,19 @@ export function AppModel() {
       }
     }
     //  model.validateLibForm(form);
+  };
+  this.addBookForNoted = function (id, name, author) {
+    this.addBookForDB(id, name, author);
+    view.ownBook(id, name, author);
+  };
+  this.addBookForDB = function (id, name, author) {
+    if (user.books === null) {
+      user.books = [];
+    }
+    const book = {
+      name,
+      author,
+    };
+    user.books.push(book);
   };
 }

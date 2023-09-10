@@ -66,7 +66,9 @@ export function AppController() {
           /* запус покупки книги */
           case e.target.classList.contains("favorite-item__btn"):
             {
+              const id = e.target.parentElement.id;
               this.buyBook(
+                id,
                 e.target.parentElement.dataset.name,
                 e.target.parentElement.dataset.author
               );
@@ -99,7 +101,6 @@ export function AppController() {
           case e.target.id === "user-icon" &&
             e.target.classList.contains("open-user-icon"):
             {
-              console.log("rrrrrrrr");
               this.closeBurgerMenu(); /* закрываем меню-бургер */
               this.closeAuthorizationeMenu(); /* oткрываем меню авторизации-регистрации */
             }
@@ -107,8 +108,6 @@ export function AppController() {
           case e.target.id === "user-icon" &&
             !e.target.classList.contains("open-user-icon"):
             {
-              console.log("rrrrrrrr");
-
               this.closeBurgerMenu(); /* закрываем меню-бургер */
               this.openAuthorizationeMenu(); /* щткрываем меню авторизации-регистрации */
             }
@@ -324,8 +323,9 @@ export function AppController() {
   this.trackUser = function () {
     model.trackUser();
   };
-  this.buyBook = function (name, author) {
-    model.buyBook(name, author);
+  this.buyBook = function (id, name, author) {
+    console.log(id);
+    model.buyBook(id, name, author);
   };
   this.logOut = function () {
     model.logOut();
